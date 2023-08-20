@@ -1,0 +1,8 @@
+Origin: amaniaTools
+Label: amania
+Suite: stable
+Version: 1.0
+Codename: amania
+Architectures: iphoneos-arm iphoneos-arm64
+Components: main
+Description: jbmania:https://www.amania-tools.com
