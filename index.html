@@ -1,48 +1,104 @@
+<!doctype html>
 <html>
-    <header>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/main.css">
-        <title>amaniaの玩具箱</title>
-        <h1 class="headline">
-            <a>amaniaの玩具箱</a>
-          </h1>
-          <ul class="nav-list">
-            <li class="nav-list-item">
-              <a>Home</a>
-            </li>
-            <a class="nav-list-item" href="jailbreak/">Discord</a>
-          </ul>
-          <hr>
-    </header>
-    <div class="main">
-    <div class="right-navi">
-        <h4>Discordサーバー</h4>
-        <iframe src="https://discord.com/widget?id=827563319984259112&theme=white" width="80%" height="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        <h4>イーロンマスクのせいでほぼ意味をなしてないTL埋め込み</h4>
-        <a class="twitter-timeline" href="https://twitter.com/amania_jp?ref_src=twsrc%5Etfw" width="80%">Tweets by amania_jp</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>あまにあのホームぺージ</title>
+<link href="AboutPageAssets/styles/aboutPageStyle.css" rel="stylesheet" type="text/css">
+
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/montserrat:n4:default;source-sans-pro:n2:default.js" type="text/javascript"></script>
+</head>
+
+<body>
+<!-- Header content -->
+<header>
+  <div class="profileLogo"> 
+    <!-- Profile logo. Add a img tag in place of <span>. -->
+    <p class="logoPlaceholder"><img src="amania-logo.png" alt="sample logo" height='70px'></p>
+  </div>
+  <div class="profilePhoto"> 
+    <!-- Profile photo --> 
+    <img src="https://avatars.githubusercontent.com/u/91243704?v=4" alt="sample" width='250px' style="border-radius: 999px"> </div>
+  <!-- Identity details -->
+  <section class="profileHeader">
+    <h1>amania</h1>
+    <hr>
+    <p>工業高校在学中　高校二年生</p>
+	 <p>Pythonを主に使用していて現在JavaScriptを勉強中</p>
+	 <p>Thinkingに所属しているが何もしてない</p>
+	 <p>ネタ切れ　ここになに書けばいいん</p>
+	  <div class="socialNetworkNav"> 
+      <!-- Add a Anchor tag with nested img tag here --> 
+		<a href='https://x.com/amania_jp'><img src="Github.png"  alt="Github" width='40px'></a>
+		<a href='https://x.com/amania_jp'><img src="X.png" alt="X" width='40px'></a>
+       </div>
+	  </section>
+</header>
+<!-- content -->
+<section class="mainContent"> 
+  <!-- Contact details -->
+  <section class="section1">
+    <h2 class="sectionTitle">Contact</h2>
+    <hr class="sectionTitleRule">
+    <hr class="sectionTitleRule2">
+    <div class="section1Content">
+      <p><span>Email :</span> support@amania.jp</p>
+      <p><span>Website :</span> amania.jp</p>
+      <p><span>Phone :</span> (810)114 - 514</p>
+      <p><span>Address :</span> Japan, Chiba</p>
     </div>
-    <div class="main-contents">
-        <box class="box">
-        <h3>Product</h3>
-        <hr>
-        <a class="nav-list-item" href="https://greasyfork.org/ja/scripts/471306-niconico%E5%8B%95%E7%94%BB%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB%E7%A7%BB%E5%8B%95%E3%81%99%E3%82%8B%E3%82%84%E3%81%A4">niconico動画のタイトル移動するやつ</a>
-        </box>
-        <box class="box">
-        <H3>Support</H3>
-        <hr>
-        <p>Discord : amania.</p>
-        <p>Twitter : @amania_jp</p>
-        </box>
-        <box class="box">
-        <h3>About</h3>
-        <hr>
-        <p>amania</p>
-        <p>全て自己満と承認欲求で生きている男</p>
-        <p>iOSの脱獄やAndroidのRoot化などデバイスの改造をメインとした雑談サーバーを運営しています</p>
-        <p>Skill : Python</p>
-        <p>gender : 秘密</p>
-        <p>age : 15</p>
-        </box>
-    </div>
-</div>
+  </section>
+  <!-- Previous experience details -->
+  <section class="section2">
+    <h2 class="sectionTitle">Service Status</h2>
+    <hr class="sectionTitleRule">
+    <hr class="sectionTitleRule2">
+    <!-- First Title & company details  -->
+    <article class="section2Content">
+      <h2 class="sectionContentTitle">AstroNetwork</h2>
+      <p class="sectionContent" id='response'> </p>
+    <strong></strong>
+    </article>
+    <!-- Second Title & company details  -->
+    <article class="section2Content">
+      <h2 class="sectionContentTitle">Authentication Server</h2>
+      <p class="sectionContent" id='Authentication'></p>
+    </article>
+    <!-- Replicate the above Div block to add more title and company details --> 
+	  <script>
+		
+        async function fetchData() {
+            try {
+                const response = await fetch('https://auth.amania.jp/v1/status');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                displayData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        function displayData(data) {
+            const responseDiv = document.getElementById('response');
+            responseDiv.innerHTML = `
+                <p>ユーザー数: ${data.message.users}</p>
+                <p>加盟サーバー数: ${data.message.servers}</p>
+                <p>Ban済みユーザー数: ${data.message.banned}</p>
+            `;
+			const Auth = document.getElementById('Authentication')
+			Auth.innerHTML = `
+					<p>Running</p>`
+        }
+
+        fetchData();</script>
+  </section>
+</section>
+<footer>
+  <hr>
+  <p class="footerDisclaimer">2024  Copyrights - <span>All Rights Reserved</span></p>
+</footer>
+</body>
 </html>
